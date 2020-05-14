@@ -1,4 +1,4 @@
-# 리스트와 반복문 학습
+# 리스트 학습
 
 # 리스트의 연결 , 반복, 길이
 list_a = [1, 2, 3]
@@ -23,3 +23,16 @@ print("del list_a[2] : ", list_a)
 
 list_a.pop(1)
 print("pop(1) : ", list_a)
+
+del list_b[:2]                      # del 키워드는 지정한 범위만큼 제거 가능
+
+list_a.remove(7)                    # 값으로 지정해서 제거
+print(list_a)
+
+list_b.clear()                      # 전체 리스트 내부 요소 제거
+print(list_b)
+
+# in / not in 연산자
+list_a = [273, 32, 103, 57, 52]
+print(273 in list_a)                # 273이 list_a 안에 있을 경우 True 출력
+print(273 not in list_a)            # 273이 list_a 안에 있을 경우 False 출력
