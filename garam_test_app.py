@@ -14,11 +14,11 @@ with open("./mcu_movies.json", "r", encoding="UTF-8") as mcu_list:
 # 문제 1번
 # 페이즈가 1인 마블 시네마틱 유니버스 영화면 뽑기
 
-# for i in range(len(dic_mcu)):
-#   if "페이즈1"  in dic_mcu[i].get("시리즈"):
-#     print("{} ( {} )".format(dic_mcu[i].get("영화명"), dic_mcu[i].get("개봉일")))
-#   else :
-#     pass
+for i in range(len(dic_mcu)):
+  if "페이즈1"  in dic_mcu[i].get("시리즈"):
+    print("{} ( {} )".format(dic_mcu[i].get("영화명"), dic_mcu[i].get("개봉일")))
+  else :
+    pass
 
 # print(dic_mcu)
 
