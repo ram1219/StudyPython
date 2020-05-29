@@ -3,6 +3,10 @@ import cv2
 faceCascade = cv2.CascadeClassifier('./haarcascades/haarcascade_frontalface_default.xml')
 eyeCascade = cv2.CascadeClassifier('./haarcascades/haarcascade_eye.xml')
 
+face_id = input('\n enter user id end press <return> ==> ')
+print("\n [INFO] initializing face capture. look the camera and wait ...")
+count = 0
+
 cap = cv2.VideoCapture(0) 
 cap.set(3, 640)
 cap.set(4, 480)
@@ -19,25 +23,30 @@ while(True):
 
     for (x,y,w,h) in faces:
         cv2.rectangle(image, (x ,y), (x + w, y + h), (255, 0, 0), 2)
-        roi_gray = gray[y:y+h, x:x+w]
-        roi_color = image[y:y+h, x:x+w]
+        count += 1
+        cv2.imwrite("facedetection/dataset/User." + str(face_id)+'.'+str(count)+'.jpg', gray[y:y+h, x:x+w])
+        #roi_gray = gray[y:y+h, x:x+w]
+        #roi_color = image[y:y+h, x:x+w]
 
-        eyes = eyeCascade.detectMultiScale(
-            roi_gray,
-            scaleFactor = 1.5,
-            minNeighbors = 10,
-            minSize = (5, 5)
-        )
+        #eyes = eyeCascade.detectMultiScale(
+        #    roi_gray,
+        #    scaleFactor = 1.5,
+        #    minNeighbors = 10,
+        #    minSize = (5, 5)
+        #)
 
-        for (ex,ey,ew,eh) in eyes:
-            cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
+        #for (ex,ey,ew,eh) in eyes:
+        #    cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
 
     cv2.imshow('video', image)
     #cv2.imshow('frame', frame)
     #cv2.imshow('gray', gray)
 
+
     k = cv2.waitKey(30) & 0xff
     if k == 27:                             # press 'ESC' to quit
+        break
+    elif count >= 30:
         break
 
 cap.release()
