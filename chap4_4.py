@@ -22,4 +22,4 @@ example_dictionary = {
     "키C" : "값C",
 }
 
-print("ittems() 함수 사용 : ", example_dictionary.items())  # 딕셔너리에 있는 키와 값을 출력
+print("items() 함수 사용 : ", example_dictionary.items())  # 딕셔너리에 있는 키와 값을 출력
